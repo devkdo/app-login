@@ -8,30 +8,37 @@
     <meta name="Cross-Origin-Opener-Policy" content="same-origin-allow-popups">
 
     <link rel="stylesheet" type="text/css" href="./styles.css">
-    <script type="text/javascript" src="./index.js" defer></script>
+    <script type="text/javascript" src="./index.js"></script>
+    <!-- <script src="https://unpkg.com/react@18/umd/react.development.js" defer></script> -->
+    <!-- <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" defer></script> -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <title>App Login</title>
 </head>
 
 <body>
-    <h1>Welcome to App Login</h1>
-    <div>
-        <div id="g_id_onload" data-client_id="114789551290-jcb4lpdnkkgh9s06udtkhcgk679fhg7a.apps.googleusercontent.com"
-            data-context="signin" data-ux_mode="popup" data-callback="handleCredentialResponse"
-            data-auto_prompt="false">
-        </div>
+    <div id="app"></div>
+    <script type="text/javascript">
+        const h1 = 'Login to App';
+        const g_id_onload = `<div id="g_id_onload" data-client_id="114789551290-jcb4lpdnkkgh9s06udtkhcgk679fhg7a.apps.googleusercontent.com"
+                            data-context="signin" data-ux_mode="popup" data-callback="handleCredentialResponse"
+                            data-auto_prompt="false">
+                            </div>`;
+        const g_id_signin = `<div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline" data-text="signin_with"
+                            data-size="large" data-logo_alignment="left">
+                            </div>`;
+        const app = document.getElementById('app');
+        const header = document.createElement('h1');
+        const headerContent = document.createTextNode(h1);
+        header.appendChild(headerContent);
 
-        <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline" data-text="signin_with"
-            data-size="large" data-logo_alignment="left">
-        </div>
-    </div>
-
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script>
-        function handleCredentialResponse(response) {
-            decodeJwtResponse(response.credential);
-        }
+        const div1 = document.createElement('div');
+        div1.innerHTML = g_id_onload;
+        const div2 = document.createElement('div');
+        div2.innerHTML = g_id_signin;
+        app.appendChild(header);
+        app.appendChild(div1);
+        app.appendChild(div2);
     </script>
-
 </body>
 
 </html>

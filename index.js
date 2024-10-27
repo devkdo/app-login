@@ -1,3 +1,6 @@
+function handleCredentialResponse(response) {
+    decodeJwtResponse(response.credential);
+}
 
 function parseJwt(token) {
     var base64Url = token.split('.')[1];
