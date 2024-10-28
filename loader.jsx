@@ -32,14 +32,20 @@ function LoginPage() {
     );
 }
 function DashboardPage() {
+    const nav = ['Home', 'My Account', 'Logout'];
     return (
         <>
             <Header title="Welcome Logged in User" />
-
+            <ul>
+                {nav.map((item) => (
+                    <li key={item}>{item}</li>
+                ))}
+            </ul>
         </>
     )
 }
-root.render(<LoginPage />);
+// root.render(<LoginPage />);
+root.render(<DashboardPage />);
 
 // const div1 = document.createElement('div');
 // div1.innerHTML = g_id_onload;
