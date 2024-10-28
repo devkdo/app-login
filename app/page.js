@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import LoginButton from './login-button';
+import NotifsButton from './notifs-button';
 
 function Header({ title }) {
     return (<h1>{title}</h1>)
@@ -8,31 +9,24 @@ function Header({ title }) {
 // }
 
 export default function LoginPage() {
-    function handleLogin() {
-        console.log("Clicked");
-        root.render(<DashboardPage />);
-    }
+   
     return (
         <>
             <Header title="Login to App" />
-            <button onClick={handleLogin}>Login</button>
-
+            <LoginButton />
+            
             {/* <GoogleOnload /> */}
             {/* <GoogleSignin /> */}
         </>
     );
 }
 export function DashboardPage() {
-    function handleNotifs() {
-        console.log("Notifs+1");
-        setNotifs(notifs + 1);
-    }
+
     const nav = ['Home', 'My Account', 'Logout'];
-    const [notifs, setNotifs] = useState(0);
     return (
         <>
             <Header title="Welcome Logged in User" />
-            <button onClick={handleNotifs}>Notifs ({notifs})</button>
+            <NotifsButton />
             <ul>
                 {nav.map((item) => (
                     <li key={item}>{item}</li>
@@ -41,7 +35,6 @@ export function DashboardPage() {
         </>
     )
 }
-root.render(<LoginPage />);
 
 // const div1 = document.createElement('div');
 // div1.innerHTML = g_id_onload;
