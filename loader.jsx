@@ -5,7 +5,7 @@ function Header({ title }) {
     return (<h1>{title}</h1>)
 }
 function Button({ label }) {
-    return (<button>{label}</button>)
+    return (<button onClick={HandleClick}>{label}</button>)
 }
 function GoogleOnload() {
     const g_id_onload = `<div id="g_id_onload" data-client_id="114789551290-jcb4lpdnkkgh9s06udtkhcgk679fhg7a.apps.googleusercontent.com"
@@ -20,11 +20,15 @@ function GoogleSignin() {
                 </div>`;
     return (g_id_signin)
 }
+function HandleClick() {
+    console.log("Clicked");
+    root.render(<DashboardPage />);
+}
 function LoginPage() {
     return (
         <>
             <Header title="Login to App" />
-            <Button label="Signin" />
+            <Button label="Signin" func={HandleClick} />
 
             {/* <GoogleOnload /> */}
             {/* <GoogleSignin /> */}
@@ -32,7 +36,8 @@ function LoginPage() {
     );
 }
 function DashboardPage() {
-    const nav = ['Home', 'My Account', 'Logout'];
+    const nav = ['Home', 'My Account', 'Inbox', 'Logout'];
+    const [notif, setNotifs] = React.useState(0);
     return (
         <>
             <Header title="Welcome Logged in User" />
@@ -44,8 +49,8 @@ function DashboardPage() {
         </>
     )
 }
-// root.render(<LoginPage />);
-root.render(<DashboardPage />);
+root.render(<LoginPage />);
+// root.render(<DashboardPage />);
 
 // const div1 = document.createElement('div');
 // div1.innerHTML = g_id_onload;
