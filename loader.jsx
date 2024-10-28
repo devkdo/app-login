@@ -4,9 +4,9 @@ const root = ReactDOM.createRoot(app);
 function Header({ title }) {
     return (<h1>{title}</h1>)
 }
-function Button({ label }) {
-    return (<button onClick={HandleClick}>{label}</button>)
-}
+// function Button({ label }) {
+//     return (<button onClick={HandleLogin}>{label}</button>)
+// }
 function GoogleOnload() {
     const g_id_onload = `<div id="g_id_onload" data-client_id="114789551290-jcb4lpdnkkgh9s06udtkhcgk679fhg7a.apps.googleusercontent.com"
                 data-context="signin" data-ux_mode="popup" data-callback="handleCredentialResponse"
@@ -20,15 +20,17 @@ function GoogleSignin() {
                 </div>`;
     return (g_id_signin)
 }
-function HandleClick() {
-    console.log("Clicked");
-    root.render(<DashboardPage />);
-}
+
+
 function LoginPage() {
+    function handleLogin() {
+        console.log("Clicked");
+        root.render(<DashboardPage />);
+    }
     return (
         <>
             <Header title="Login to App" />
-            <Button label="Signin" func={HandleClick} />
+            <button onClick={handleLogin}>Login</button>
 
             {/* <GoogleOnload /> */}
             {/* <GoogleSignin /> */}
@@ -36,11 +38,16 @@ function LoginPage() {
     );
 }
 function DashboardPage() {
-    const nav = ['Home', 'My Account', 'Inbox', 'Logout'];
-    const [notif, setNotifs] = React.useState(0);
+    function handleNotifs() {
+        console.log("Notifs+1");
+        setNotifs(notifs + 1);
+    }
+    const nav = ['Home', 'My Account', 'Logout'];
+    const [notifs, setNotifs] = React.useState(0);
     return (
         <>
             <Header title="Welcome Logged in User" />
+            <button onClick={handleNotifs}>Notifs ({notifs})</button>
             <ul>
                 {nav.map((item) => (
                     <li key={item}>{item}</li>
@@ -50,7 +57,6 @@ function DashboardPage() {
     )
 }
 root.render(<LoginPage />);
-// root.render(<DashboardPage />);
 
 // const div1 = document.createElement('div');
 // div1.innerHTML = g_id_onload;
