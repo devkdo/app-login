@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="Cross-Origin-Opener-Policy" content="same-origin-allow-popups">
+
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <script type="text/javascript" src="./index.js"></script>
+    <!-- <script src="https://unpkg.com/react@18/umd/react.development.js" defer></script> -->
+    <!-- <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" defer></script> -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <title>App Login</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/javascript">
+        const h1 = 'Login to App';
+        const g_id_onload = `<div id="g_id_onload" data-client_id="114789551290-jcb4lpdnkkgh9s06udtkhcgk679fhg7a.apps.googleusercontent.com"
+                            data-context="signin" data-ux_mode="popup" data-callback="handleCredentialResponse"
+                            data-auto_prompt="false">
+                            </div>`;
+        const g_id_signin = `<div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline" data-text="signin_with"
+                            data-size="large" data-logo_alignment="left">
+                            </div>`;
+        const app = document.getElementById('app');
+        const header = document.createElement('h1');
+        const headerContent = document.createTextNode(h1);
+        header.appendChild(headerContent);
+
+        const div1 = document.createElement('div');
+        div1.innerHTML = g_id_onload;
+        const div2 = document.createElement('div');
+        div2.innerHTML = g_id_signin;
+        app.appendChild(header);
+        app.appendChild(div1);
+        app.appendChild(div2);
+    </script>
+</body>
+
+</html>

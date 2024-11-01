@@ -1,0 +1,19 @@
+{
+  "name": "app-login",
+  "version": "1.0.0",
+  "description": "basic login page with Google sign-in integration",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/devkdo/app-login.git"
+  },
+  "author": "devkdo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/devkdo/app-login/issues"
+  },
+  "homepage": "https://github.com/devkdo/app-login#readme"
+}
